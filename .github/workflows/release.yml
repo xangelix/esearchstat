@@ -21,14 +21,14 @@ jobs:
       matrix:
         include:
           - target: x86_64-unknown-linux-gnu
-            asset_name: ripsaw-linux-x86_64
-            binary_path: target/release/ripsaw
+            asset_name: esearchstat-linux-x86_64
+            binary_path: target/release/esearchstat
             setup_cmd: echo "Using native target architecture."
             build_cmd: cargo build --release
 
           - target: x86_64-pc-windows-gnu
-            asset_name: ripsaw-windows-x86_64.exe
-            binary_path: target/x86_64-pc-windows-gnu/release/ripsaw.exe
+            asset_name: esearchstat-windows-x86_64.exe
+            binary_path: target/x86_64-pc-windows-gnu/release/esearchstat.exe
             setup_cmd: |
               paru -Syu --noconfirm mingw-w64
               rustup target add x86_64-pc-windows-gnu
@@ -69,11 +69,11 @@ jobs:
       matrix:
         include:
           - target: aarch64-apple-darwin
-            asset_name: ripsaw-macos-arm64
-            binary_path: target/aarch64-apple-darwin/release/ripsaw
+            asset_name: esearchstat-macos-arm64
+            binary_path: target/aarch64-apple-darwin/release/esearchstat
           - target: x86_64-apple-darwin
-            asset_name: ripsaw-macos-x86_64
-            binary_path: target/x86_64-apple-darwin/release/ripsaw
+            asset_name: esearchstat-macos-x86_64
+            binary_path: target/x86_64-apple-darwin/release/esearchstat
 
     steps:
       - name: Checkout Source Code
