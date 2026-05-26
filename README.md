@@ -2,6 +2,10 @@
 
 https://github.com/user-attachments/assets/placeholder-for-video
 
+[![Crates.io](https://img.shields.io/crates/v/esearchstat)](https://crates.io/crates/esearchstat)
+[![Docs.rs](https://docs.rs/esearchstat/badge.svg)](https://docs.rs/esearchstat)
+[![License](https://img.shields.io/crates/l/esearchstat)](https://spdx.org/licenses/MIT)
+
 **eSearchStat** is a high-performance desktop GUI for incredibly fast text searching, powered by ripgrep. It brings the legendary speed of professional command-line searching to everyday users through a simple, point-and-click interface. You don't need to be a programmer or wrestle with a confusing terminal—eSearchStat lets anyone hunt down specific words or phrases across thousands of documents, notes, and files as fast as your computer can possibly provide.
 
 Unlike standard text search tools that grind to a halt on large filesystems, **eSearchStat** utilizes raw Rust concurrency underneath its UI. It combines a parallel, `.gitignore`-aware file crawler with optimized SIMD accelerated search regex matches, passing hits across lock-free pipelines. Results can be grouped into an interactive, collapsing directory tree or deep-filtered via secondary in-memory chain queries, while zero-copy binary layout maps allow you to save and instantly reload massive result datasets.
