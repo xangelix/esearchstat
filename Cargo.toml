@@ -1,0 +1,25 @@
+[package]
+name = "esearchstat"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bytemuck = { version = "1.25.0", features = ["derive"] }
+crossbeam-channel = "0.5.15"
+eframe = { version = "0.34.2", default-features = false, features = [
+    "wgpu",
+    "wayland",
+    "default_fonts",
+] }
+grep-regex = "0.1.14"
+grep-searcher = { version = "0.1.16", features = ["avx-accel", "simd-accel"] }
+ignore = { version = "0.4.25", features = ["simd-accel"] }
+memmap2 = "0.9.10"
+open = "5.3.5"
+regex = { version = "1.12.3", features = ["use_std"] }
+rfd = "0.17.2"
+thiserror = "2.0.18"
+
+[[bin]]
+name = "esearchstat"
+path = "src/bin/esearchstat.rs"
