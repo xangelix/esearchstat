@@ -1,7 +1,20 @@
 [package]
 name = "esearchstat"
+description = "A high-performance desktop GUI for incredibly fast text searching, powered by ripgrep."
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
+documentation = "https://docs.rs/esearchstat"
+repository = "https://github.com/xangelix/esearchstat"
+authors = ["Cody Wyatt Neiman (xangelix) <neiman@cody.to>"]
+categories = [
+    "gui",
+    "filesystem",
+    "visualization",
+    "concurrency",
+    "development-tools",
+]
+keywords = ["ripgrep", "grep", "code-search", "egui", "search"]
 
 [dependencies]
 bytemuck = { version = "1.25.0", features = ["derive"] }
