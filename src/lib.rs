@@ -25,6 +25,8 @@
 #![allow(clippy::crate_in_macro_def)]
 #![allow(clippy::too_many_lines)]
 #![allow(clippy::struct_excessive_bools)]
+// Docs
+#![doc = include_str!("../README.md")]
 
 pub mod core;
 pub mod error;
