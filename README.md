@@ -42,7 +42,6 @@ cd esearchstat
 
 # Build the release executable
 cargo build --release
-
 ```
 
 The compiled binary will be located at `target/release/esearchstat`.
@@ -55,7 +54,6 @@ Run the application from the command line:
 
 ```bash
 ./target/release/esearchstat
-
 ```
 
 ### Navigating the User Interface
@@ -128,7 +126,6 @@ The `.ess` output layout mirrors raw system alignment memory rules to ensure rea
 +------------------------------------------------------------+
 |  Data Arena (Raw Packed UTF-8 string bytes)                |
 +------------------------------------------------------------+
-
 ```
 
 - **Zero Allocation Casts:** The persistence layouts use `bytemuck::Pod` and `bytemuck::Zeroable` markers. When parsing a saved result dump, the program maps the file into memory via `memmap2::MmapOptions::map_copy`.
