@@ -29,7 +29,7 @@ grep-searcher = { version = "0.1.16", features = ["avx-accel", "simd-accel"] }
 ignore = { version = "0.4.26", features = ["simd-accel"] }
 memmap2 = "0.9.10"
 open = "5.3.5"
-regex = { version = "1.12.3", features = ["use_std"] }
+regex = { version = "1.12.4", features = ["use_std"] }
 rfd = "0.17.2"
 thiserror = "2.0.18"
 
