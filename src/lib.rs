@@ -34,3 +34,5 @@ pub mod gui;
 pub mod storage;
 pub mod theme;
 pub mod tree;
+
+include!(concat!(env!("OUT_DIR"), "/static_cache.rs"));

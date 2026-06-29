@@ -2,6 +2,7 @@ use std::path::{Path, PathBuf};
 
 use crossbeam_channel::Receiver;
 use eframe::egui;
+use fluent_zero::t;
 
 use super::{
     core::{FilePreviewer, SearchMatch, start_search},
@@ -273,13 +274,15 @@ impl eframe::App for SearchApp {
                     ui.style_mut().visuals.button_frame = false;
 
                     // Top menu buttons (File / View / Help)
-                    ui.menu_button("File", |ui| {
+                    let new_search_text = t!("new-search");
+                    let chain_search_text = t!("chain-search");
+                    ui.menu_button(t!("file"), |ui| {
                         ui.style_mut().wrap_mode = Some(egui::TextWrapMode::Extend);
 
                         let search_btn_text = if self.is_searching {
                             "⏳ Searching..."
                         } else {
-                            "🔍 New Search"
+                            &new_search_text
                         };
                         let start_search_resp = ui.add_enabled(
                             !self.is_searching && !self.query.is_empty(),
@@ -294,7 +297,7 @@ impl eframe::App for SearchApp {
                         let chain_enabled = !self.is_searching && !self.matches.is_empty() && !self.query.is_empty();
                         let chain_btn_resp = ui.add_enabled(
                             chain_enabled,
-                            egui::Button::new("🔗 Chain Search"),
+                            egui::Button::new(&*chain_search_text),
                         );
                         let chain_btn_resp = chain_btn_resp.on_hover_text("Search within the current search results in-memory, sharing the query but ignoring the path");
                         if chain_btn_resp.clicked() {
@@ -320,7 +323,7 @@ impl eframe::App for SearchApp {
                         }
                     });
 
-                    ui.menu_button("View", |ui| {
+                    ui.menu_button(t!("view"), |ui| {
                         ui.style_mut().wrap_mode = Some(egui::TextWrapMode::Extend);
 
                         // Aligned checkbox layout for monospace font
@@ -351,7 +354,7 @@ impl eframe::App for SearchApp {
                         });
                     });
 
-                    ui.menu_button("Help", |ui| {
+                    ui.menu_button(t!("help"), |ui| {
                         ui.style_mut().wrap_mode = Some(egui::TextWrapMode::Extend);
                         if ui.button("ℹ About").clicked() {
                             self.show_about = true;
@@ -367,7 +370,7 @@ impl eframe::App for SearchApp {
                     let search_btn_text = if self.is_searching {
                         "⏳ Searching..."
                     } else {
-                        "🔍 New Search"
+                        &new_search_text
                     };
                     let start_search_resp = ui.add_enabled(
                         !self.is_searching && !self.query.is_empty(),
@@ -381,7 +384,7 @@ impl eframe::App for SearchApp {
                     let chain_enabled = !self.is_searching && !self.matches.is_empty() && !self.query.is_empty();
                     let chain_btn_resp = ui.add_enabled(
                         chain_enabled,
-                        egui::Button::new("🔗 Chain Search"),
+                        egui::Button::new(chain_search_text),
                     );
                     let chain_btn_resp = chain_btn_resp.on_hover_text("Search within the current search results in-memory, sharing the query but ignoring the path");
                     if chain_btn_resp.clicked() {
@@ -399,7 +402,7 @@ impl eframe::App for SearchApp {
                     } else if !self.matches.is_empty() {
                         ui.colored_label(COLOR_STATUS_SUCCESS, "Search Complete");
                     } else {
-                        ui.label("Idle");
+                        ui.label(t!("idle"));
                     }
                 });
 
