@@ -258,7 +258,7 @@ impl eframe::App for SearchApp {
         // 2. Top Control Panel with flat menu and sleek horizontal query deck
         egui::Panel::top("top_panel")
             .resizable(false)
-            .show_inside(ui, |ui| {
+            .show(ui, |ui| {
                 ui.add_space(2.0); // Perfect top alignment balancing bottom margins
                 ui.horizontal(|ui| {
                     ui.heading(
@@ -492,7 +492,7 @@ impl eframe::App for SearchApp {
             });
 
         // 3. Bottom Status Bar Panel
-        egui::Panel::bottom("bottom_panel").show_inside(ui, |ui| {
+        egui::Panel::bottom("bottom_panel").show(ui, |ui| {
             ui.horizontal(|ui| {
                 ui.label(format!("🔍 Matches found: {}", self.matches.len()));
                 if !self.directory.is_empty() {
@@ -515,7 +515,7 @@ impl eframe::App for SearchApp {
         // 4. Edge-to-Edge Central Panel ensuring scrollbar is on the far right along the window edge
         egui::CentralPanel::default()
             .frame(egui::Frame::NONE) // Zero margins for panel frame
-            .show_inside(ui, |ui| {
+            .show(ui, |ui| {
                 // Sleek View Mode Tab Switcher at the top of the Central Panel
                 ui.add_space(8.0);
                 ui.horizontal(|ui| {
